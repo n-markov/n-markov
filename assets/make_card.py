@@ -35,7 +35,7 @@ ROWS = [
 ]
 
 NODES = [  # cx, cy, label
-    (95, 162, "sleep"),
+    (95, 162, "read"),
     (235, 162, "maths"),
     (235, 292, "code"),
     (95, 292, "swim"),
@@ -114,11 +114,11 @@ def build(p):
 
     a(f'<g stroke="{p["nodeline"]}" stroke-width="1.6" fill="none" '
       f'marker-end="url(#arw)" stroke-linecap="round">')
-    a('<line x1="131" y1="162" x2="195" y2="162"/>')     # sleep -> maths
-    a('<line x1="235" y1="198" x2="235" y2="252"/>')     # maths -> code
-    a('<line x1="199" y1="292" x2="135" y2="292"/>')     # code  -> swim
-    a('<line x1="95" y1="256" x2="95" y2="202"/>')       # swim  -> sleep
-    a('<path d="M262 275 C 336 248 336 336 264 309"/>')  # code  -> code
+    a('<line x1="131" y1="162" x2="195" y2="162"/>')     # node1 -> node2
+    a('<line x1="235" y1="198" x2="235" y2="252"/>')     # node2 -> node3
+    a('<line x1="199" y1="292" x2="135" y2="292"/>')     # node3 -> node4
+    a('<line x1="95" y1="256" x2="95" y2="202"/>')       # node4 -> node1
+    a('<path d="M262 275 C 336 248 336 336 264 309"/>')  # node3 -> node3
     a('</g>')
 
     a(f'<defs><marker id="arw" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="6" '
