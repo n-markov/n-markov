@@ -22,14 +22,15 @@ LIGHT = dict(
 
 # label, value  -- label+dots is padded to exactly 16 chars so every row aligns
 ROWS = [
+    ("Studying",  "BSc Mathematics, University of Bath '28"),
     ("Location",  "London, UK  ·  Bath during term"),
-    ("Reading",   "BSc Mathematics, University of Bath '28"),
-    ("Focus",     "statistical learning · quant research"),
+    ("Reading",   "Problem-Solving Through Problems (Larson)"),
+    ("Focus",     "data science · machine learning"),
     ("Languages", "Python · R"),
     ("Libraries", "NumPy · pandas · scikit-learn · PyTorch"),
     ("Tools",     "Git · Jupyter · openpyxl / XlsxWriter"),
-    ("Latest",    "a CNN in raw NumPy — 89% on held-out"),
-    ("Offline",   "integration bees · CTFs · swimming"),
+    ("Latest",    "BA Forage — RandomForest booking model"),
+    ("Offline",   "competitive maths · swimming · sailing"),
     ("Contact",   "nm2263@bath.ac.uk"),
 ]
 
@@ -84,10 +85,25 @@ def build(p):
       f'stroke="{p["border"]}" stroke-width="1.5"/>')
     a(f'<path d="M1 12a11 11 0 0 1 11-11h896a11 11 0 0 1 11 11v26H1z" fill="{p["bar"]}"/>')
     a(f'<line x1="1" y1="38" x2="919" y2="38" stroke="{p["barline"]}" stroke-width="1.5"/>')
-    for i, c in enumerate(("#E06C60", "#E2B341", "#62C462")):
-        a(f'<circle cx="{24 + i*20}" cy="19.5" r="5.5" fill="{c}" opacity=".85"/>')
-    a(f'<text class="m" x="460" y="24" text-anchor="middle" font-size="12" '
+
+    # app icon + left-aligned title (Windows-style)
+    a(f'<rect x="20" y="13" width="13" height="13" rx="3" fill="{p["accent2"]}"/>')
+    a(f'<text class="m" x="40" y="24" text-anchor="start" font-size="12" '
       f'fill="{p["muted"]}">nik@bath: ~</text>')
+
+    # minimize / maximize / close glyphs (Windows-style, right-aligned)
+    for cx, kind in ((826, "min"), (858, "max"), (890, "close")):
+        if kind == "min":
+            a(f'<line x1="{cx-5}" y1="19.5" x2="{cx+5}" y2="19.5" stroke="{p["muted"]}" '
+              f'stroke-width="1.3" stroke-linecap="round"/>')
+        elif kind == "max":
+            a(f'<rect x="{cx-5}" y="14.5" width="10" height="10" fill="none" '
+              f'stroke="{p["muted"]}" stroke-width="1.3"/>')
+        else:
+            a(f'<line x1="{cx-5}" y1="14.5" x2="{cx+5}" y2="24.5" stroke="{p["muted"]}" '
+              f'stroke-width="1.3" stroke-linecap="round"/>')
+            a(f'<line x1="{cx-5}" y1="24.5" x2="{cx+5}" y2="14.5" stroke="{p["muted"]}" '
+              f'stroke-width="1.3" stroke-linecap="round"/>')
 
     # ---- typed command ------------------------------------------------------
     a(f'<g clip-path="url(#typeclip)"><text class="m" x="34" y="68" font-size="14" '
