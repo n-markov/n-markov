@@ -22,14 +22,15 @@ LIGHT = dict(
 
 # label, value  -- label+dots is padded to exactly 16 chars so every row aligns
 ROWS = [
+    ("Studying",  "BSc Mathematics, University of Bath '28"),
     ("Location",  "London, UK  ·  Bath during term"),
-    ("Reading",   "BSc Mathematics, University of Bath '28"),
-    ("Focus",     "statistical learning · quant research"),
+    ("Reading",   "Problem-Solving Through Problems (Larson)"),
+    ("Focus",     "data science · machine learning"),
     ("Languages", "Python · R"),
     ("Libraries", "NumPy · pandas · scikit-learn · PyTorch"),
     ("Tools",     "Git · Jupyter · openpyxl / XlsxWriter"),
-    ("Latest",    "a CNN in raw NumPy — 89% on held-out"),
-    ("Offline",   "integration bees · CTFs · swimming"),
+    ("Latest",    "BA Forage — RandomForest booking model"),
+    ("Offline",   "competitive maths · swimming · sailing"),
     ("Contact",   "nm2263@bath.ac.uk"),
 ]
 
